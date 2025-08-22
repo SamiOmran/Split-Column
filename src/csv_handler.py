@@ -46,9 +46,10 @@ class CSVHandler:
             self.body[i] = self.body[i][0].split(';')
 
             # 3. replace empty values with 'NA'
-            self.body[i] = ['NA' for item in self.body[i] if not item]
+            self.body[i] = ['NA' if not item.strip() else item.strip() for item in self.body[i]]
 
-        print(self.body)
-
+        # # 4. remove duplicates
+        self.body = [list(row) for row in {tuple(row) for row in self.body}]
+ 
     def split_file(self, column_number):
         pass

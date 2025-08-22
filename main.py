@@ -21,7 +21,7 @@ def user_input():
 
 
 def handle(csv_file, column_number):
-    print(csv_file.body)
+    pass
 
 
 def main():
